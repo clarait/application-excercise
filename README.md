@@ -50,7 +50,7 @@ Implementations:
      -   Created a seed.ts file (using faker to generate fake data) and generated posts for the database.
 3.  tRPC:
 
-    - Used tRPC to create API endpoints for:
+    - Used tRPC to create API endpoints with prisma CRUD operations for:
         1. fetching all blog posts (sorted by date, newest first)
         2. fetching a single blog post by its ID
         3. creating a new blog post (used zod to validate the mutation data)
