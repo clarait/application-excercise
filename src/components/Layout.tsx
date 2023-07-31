@@ -11,11 +11,11 @@ function Layout({ children }: { children: React.ReactNode }) {
         <link rel="icon" href="/favicon.ico" />
       </Head>
       <header className="sticky top-0 flex w-full flex-col justify-between border-b-2 border-black bg-white text-black md:flex-row md:items-center">
-        <h1
-          className={`border-b-2 border-black px-9 py-4 font-sans text-2xl md:border-none`}
+        <h2
+          className={`border-b-2 border-black px-9 py-4 text-2xl font-light md:border-none`}
         >
-          MyBlogSite
-        </h1>
+          Blogger.com
+        </h2>
         <nav>
           <ul className="flex">
             <li className="grow">

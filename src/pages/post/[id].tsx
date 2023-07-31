@@ -6,8 +6,20 @@ import { api } from "~/utils/api";
 function Post() {
   const router = useRouter();
   const post = api.posts.getDetails.useQuery(router.query.id as string);
-  if (post.isLoading) return <p>Loading...</p>;
-  if (post.isError) return <p>Error occurred while fetching the post.</p>;
+  if (post.isLoading)
+    return (
+      <main>
+        <p className="px-20 py-8 font-light">Loading blog post...</p>
+      </main>
+    );
+  if (post.isError)
+    return (
+      <main>
+        <p className="px-20 py-8 font-light">
+          Error occurred while fetching the post.
+        </p>
+      </main>
+    );
   else if (post.data)
     return (
       <main className="flex grow flex-col">

@@ -1,5 +1,6 @@
 import { z } from "zod";
 import { createTRPCRouter, publicProcedure } from "~/server/api/trpc";
+import { createPostSchema } from "~/utils/postSchema";
 
 export const postsRouter = createTRPCRouter({
   getAll: publicProcedure.query(({ ctx }) => {
@@ -27,4 +28,14 @@ export const postsRouter = createTRPCRouter({
       },
     });
   }),
+  createUser: publicProcedure
+    .input(createPostSchema)
+    .mutation(({ ctx, input }) => {
+      return ctx.prisma.blogPost.create({
+        data: {
+          title: input.title,
+          content: input.content,
+        },
+      });
+    }),
 });

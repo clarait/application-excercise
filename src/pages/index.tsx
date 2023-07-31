@@ -4,8 +4,20 @@ import { api } from "~/utils/api";
 
 export default function Home() {
   const posts = api.posts.getAll.useQuery();
-  if (posts.isLoading) return <p>Loading...</p>;
-  if (posts.isError) return <p>Error occurred while fetching the posts.</p>;
+  if (posts.isLoading)
+    return (
+      <main>
+        <p className="px-20 py-8 font-light">Loading feed...</p>
+      </main>
+    );
+  if (posts.isError)
+    return (
+      <main>
+        <p className="px-20 py-8 font-light">
+          Error occurred while fetching the posts.
+        </p>
+      </main>
+    );
   else if (posts.data)
     return (
       <main className="bg-white">
