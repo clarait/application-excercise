@@ -2,14 +2,29 @@ import { z } from "zod";
 import { createTRPCRouter, publicProcedure } from "~/server/api/trpc";
 
 export const postsRouter = createTRPCRouter({
-  hello: publicProcedure
-    .input(z.object({ text: z.string() }))
-    .query(({ input }) => {
-      return {
-        greeting: `Hello ${input.text}`,
-      };
-    }),
   getAll: publicProcedure.query(({ ctx }) => {
-    return ctx.prisma.blogPost.findMany();
+    return ctx.prisma.blogPost.findMany({
+      orderBy: {
+        createdAt: "desc",
+      },
+      select: {
+        id: true,
+        title: true,
+        createdAt: true,
+      },
+    });
+  }),
+  getDetails: publicProcedure.input(z.string()).query(({ ctx, input }) => {
+    return ctx.prisma.blogPost.findUniqueOrThrow({
+      where: {
+        id: input,
+      },
+      select: {
+        id: true,
+        title: true,
+        content: true,
+        createdAt: true,
+      },
+    });
   }),
 });
