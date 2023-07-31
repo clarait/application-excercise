@@ -11,6 +11,7 @@ async function generateBlogPosts() {
         data: {
           title: faker.lorem.sentence({ min: 1, max: 5 }),
           content: faker.lorem.paragraphs({ min: 2, max: 8 }),
+          createdAt: faker.date.past({ years: 5 }),
         },
       });
     }

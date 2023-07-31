@@ -7,7 +7,13 @@ interface PostDetailsCardProps extends React.HTMLAttributes<HTMLDivElement> {
 }
 
 function PostDetailsCard(props: PostDetailsCardProps) {
-  return <div>PostDetailsCard</div>;
+  return (
+    <div>
+      <h2>{props.title}</h2>
+      <p>{props.createdAt.toString()}</p>
+      <p>{props.children}</p>
+    </div>
+  );
 }
 
 export default PostDetailsCard;
