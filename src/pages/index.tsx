@@ -1,4 +1,3 @@
-import Head from "next/head";
 import PostTitleCard from "~/components/PostTitleCard";
 import { api } from "~/utils/api";
 

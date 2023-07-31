@@ -1,8 +1,10 @@
 import router from "next/router";
 import React from "react";
-import { SubmitHandler, useForm } from "react-hook-form";
+import { useForm } from "react-hook-form";
+import type { SubmitHandler } from "react-hook-form";
 import { api } from "~/utils/api";
-import { createPostSchema, createPostType } from "~/utils/postSchema";
+import { createPostSchema } from "~/utils/postSchema";
+import type { createPostType } from "~/utils/postSchema";
 import { zodResolver } from "@hookform/resolvers/zod";
 
 function CreateNewPost() {
